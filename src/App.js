@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
-// import styled from 'styled-components';
-
 import SideDrawer from "./components/SideDrawer"
 
 import './App.css';
+
+import styled from 'styled-components';
+
+const AppWrapper= styled.div`
+  background: ${props => props.inverse ? "black" : "white"}
+`
 
 class App extends Component {
   state = {
@@ -18,9 +22,9 @@ class App extends Component {
 
   render () {
     return (
-      <div className="App">
+      <AppWrapper id="AppWrapper" inverse>
         <SideDrawer show={this.state.isDrawerOpen} clicked={this.ToggleClickHandler}/>
-      </div>
+      </AppWrapper>
     );
   }
 }
